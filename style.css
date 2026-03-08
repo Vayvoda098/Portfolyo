@@ -149,6 +149,31 @@ nav {
     width: 100%;
 }
 
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-bright);
+    transition: color 0.2s;
+}
+
+.hamburger:hover {
+    color: var(--accent);
+}
+
+.hamburger svg {
+    width: 28px;
+    height: 28px;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+.close-sidebar {
+    display: none;
+}
+
 /* ===== HERO ===== */
 #hero {
     min-height: 100vh;
@@ -1150,11 +1175,90 @@ footer {
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
     nav {
-        padding: 1rem 1.5rem;
+        padding: 1.2rem 1.5rem;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1001;
+        transition: opacity 0.3s;
+    }
+
+    .hamburger.active {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100VW;
+        height: 100VH;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 900;
+    }
+
+    .sidebar-overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-links {
-        gap: 1.2rem;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 260px;
+        height: 100VH;
+        background: var(--bg2);
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 6rem 2.5rem 2rem 2.5rem;
+        gap: 2rem;
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        z-index: 1000;
+        border-left: 1px solid var(--border);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        font-family: 'Syne', sans-serif;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: none;
+    }
+
+    .close-sidebar {
+        display: block;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: transparent;
+        border: none;
+        color: var(--text-dim);
+        font-size: 1.8rem;
+        font-family: 'JetBrains Mono', monospace;
+        transition: color 0.2s;
+    }
+
+    .close-sidebar:hover {
+        color: var(--red);
     }
 
     section {
@@ -1162,7 +1266,22 @@ footer {
     }
 
     #hero {
-        padding: 0 1.5rem;
+        padding: 6rem 1.5rem 3rem;
+        text-align: center;
+        min-height: auto;
+    }
+
+    .hero-tag {
+        margin: 0 auto 1.5rem;
+    }
+
+    .hero-cta {
+        justify-content: center;
+    }
+
+    .terminal-box {
+        margin: 0 auto 2.5rem;
+        text-align: left;
     }
 
     .about-grid {
@@ -1170,7 +1289,7 @@ footer {
     }
 
     .skills-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
     }
 
     .projects-grid {
@@ -1195,5 +1314,29 @@ footer {
 
     .hero-name {
         font-size: 2.2rem;
+    }
+
+    .terminal-box {
+        padding: 1rem;
+        font-size: 0.75rem;
+    }
+}
+
+/* Kanka siteyi mobil için responsive hale getir. Curos olmasın eğer mobilden girdiyse kullanıcı. */
+@media (hover: none) and (pointer: coarse),
+(max-width: 768px) {
+
+    body,
+    a,
+    button,
+    .btn,
+    .project-card,
+    .contact-link {
+        cursor: auto !important;
+    }
+
+    .cursor,
+    .cursor-trail {
+        display: none !important;
     }
 }

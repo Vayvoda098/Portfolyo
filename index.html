@@ -18,12 +18,25 @@
     <!-- NAV -->
     <nav>
         <a href="#hero" class="nav-logo">mek<span>.dev</span></a>
-        <ul class="nav-links">
-            <li><a href="#about">Hakkımda</a></li>
-            <li><a href="#skills">Beceriler</a></li>
-            <li><a href="#experience">Deneyim</a></li>
-            <li><a href="#projects">Projeler</a></li>
-            <li><a href="#contact">İletişim</a></li>
+
+        <button class="hamburger" id="hamburger" aria-label="Menü">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+        </button>
+
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+        <ul class="nav-links" id="navLinks">
+            <button class="close-sidebar" id="closeSidebar" aria-label="Kapat">✕</button>
+            <li><a href="#about" class="nav-item">Hakkımda</a></li>
+            <li><a href="#skills" class="nav-item">Beceriler</a></li>
+            <li><a href="#experience" class="nav-item">Deneyim</a></li>
+            <li><a href="#projects" class="nav-item">Projeler</a></li>
+            <li><a href="#contact" class="nav-item">İletişim</a></li>
         </ul>
     </nav>
 
@@ -364,16 +377,15 @@
             <a href="https://www.behance.net/mehmetemin30" target="_blank" class="contact-link">
                 <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path
-                        d="M22 7h-7v-2h7v2zM11.5 14.6c1.7 0 2.3-1.4 2.3-2.6h-4.3c0 1.2.6 2.6 2 2.6zM11.1 11c-1.3 0-1.8 1.1-1.9 2h3.9c-.1-1.1-.6-2-2-2zM24 15.6c0-3.3-2.4-6.1-6-6.1-3.8 0-6 3.1-6 6.5 0 3.7 2.7 6.5 6.4 6.5 3.3 0 5.6-2 6.1-4.7h-3.4c-.4 1.1-1.4 1.7-2.7 1.7-2.2 0-3-1.8-3-3.6h9.5c.1-.3.1-.6.1-.3zM4.9 13.9c1 0 1.7-.5 1.7-1.4 0-1-.7-1.3-1.6-1.3h-2.1v2.7h2zM3 7.8h1.7c1 0 1.7.5 1.7 1.4 0 .8-.5 1.2-1.2 1.3 1 .1 1.5.7 1.5 1.6 0 1-.8 1.5-1.9 1.5h-1.8v-5.8zM0 22h8.3c3.2 0 5.5-2.2 5.5-5.3 0-1.8-1-3.3-2.4-4.2 1.1-.8 1.8-2 1.8-3.4 0-2.8-2.2-4.9-5-4.9h-8.2v17.8z" />
+                        d="M22 7h-7v-2h7v2zm1.944 5.466c0-2.91-2.215-5.267-5.592-5.719-2.73 1.053-4.14 3.737-4.14 6.643 0 3.395 2.502 6.01 5.918 6.01 3.235 0 5.418-2.091 5.86-5.183h-2.956c-.347 1.3-1.603 2.05-2.887 2.05-1.545 0-2.812-1.077-2.812-2.7h8.56c.032-.387.05-.776.05-1.101zm-5.753-3.266c1.365 0 2.457.941 2.563 2.296h-5.225c.188-1.282 1.332-2.296 2.662-2.296zM8.53 12.136c1.386-.325 2.535-1.339 2.535-3.364 0-3.149-2.589-3.98-5.382-3.98H0v15.203h5.922c3.411 0 5.809-1.38 5.809-4.39 0-2.126-1.503-3.08-3.199-3.47v-.001zm-5.464-5.34h2.476c1.305 0 2.508.204 2.508 1.706 0 1.48-1.092 1.828-2.593 1.828H3.067V6.797zm0 11.232v-4.52h2.721c1.55 0 2.923.369 2.923 2.203 0 1.93-1.428 2.316-2.984 2.316H3.066z" />
                 </svg>
                 Behance
             </a>
 
             <a href="mailto:mehmet.e.k098@gmail.com" class="contact-link">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
-                    stroke-width="2">
-                    <rect x="2" y="4" width="20" height="16" rx="2" />
-                    <path d="M22 4L12 13 2 4" />
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z" />
                 </svg>
                 mehmet.e.k098@gmail.com
             </a>
@@ -387,8 +399,6 @@
 
     <!-- FOOTER -->
     <footer>
-        <span class="footer-text">© 2025 <span>Mehmet Emin Kaba</span></span>
-        <span class="footer-text" id="time"></span>
     </footer>
 
     <!-- 3D GALLERY MODAL -->
@@ -476,14 +486,33 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Live time in footer
-        function updateTime() {
-            const now = new Date();
-            document.getElementById('time').textContent =
-                now.toLocaleString('tr-TR', { dateStyle: 'medium', timeStyle: 'short' });
+        // Mobile Sidebar
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const closeSidebar = document.getElementById('closeSidebar');
+        const navItems = document.querySelectorAll('.nav-item');
+
+        function openMenu() {
+            hamburger.classList.add('active');
+            navLinks.classList.add('active');
+            sidebarOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
-        updateTime();
-        setInterval(updateTime, 30000);
+
+        function closeMenu() {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+            sidebarOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        hamburger.addEventListener('click', openMenu);
+        closeSidebar.addEventListener('click', closeMenu);
+        sidebarOverlay.addEventListener('click', closeMenu);
+        navItems.forEach((item) => {
+            item.addEventListener('click', closeMenu);
+        });
 
         // 3D Gallery
         const galleryImages = [
